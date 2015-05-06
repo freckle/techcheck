@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Front Row Technology Check</title>
+    <meta name="description" content="Front Row Classroom - Be Ready">
+    <meta name="author" content="Front Row Education Inc.">
+    <meta name="keyword" content="Teacher, Dashboard, Student">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="vendor/css/bootstrap.min.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Mixpanel using student-onebox own project-->
+    <script type="text/javascript">
+      (function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+      for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+      mixpanel.init("5d781b808519e8bd665e23f92f76ae99");
+    </script>
+    <!-- end Mixpanel -->
+  </head>
+  <body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div class="container uv-main-wrapper">
+
+      <div class="row">
+        <div class="col-xs-12 text-center">
+          <h1>Front Row Technology Check</h1>
+        </div>
+      </div>
+
+      <div class="js-loader">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <h2>Checking Your System</h2>
+            <img src="img/loader.gif" alt="Checking the system..." title="Checking the system..."/>
+          </div>
+        </div>
+      </div>
+
+      <div class="js-checks-wrapper hide">
+        <!-- Start of Summary Section -->
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="bs-callout js-callout-summary">
+              Starting tests
+            </div>
+            <div class="bs-callout js-callout-summary-failed bs-callout-danger hide">
+              <span class="glyphicon glyphicon-remove uv-large-font" aria-hidden="true"></span>
+              <h3>You cannot use Front Row with your settings. Please find what is failing below.</h3>
+            </div>
+            <div class="bs-callout js-callout-summary-warning bs-callout-warning hide">
+              <span class="glyphicon glyphicon-warning-sign uv-color-warning uv-large-font" aria-hidden="true"></span>
+              <h3>Your system can run Front Row, but you can improve the experience. Learn how below.</h3>
+            </div>
+            <div class="bs-callout js-callout-summary-success bs-callout-full-success hide">
+              <span class="glyphicon glyphicon-ok uv-large-font" aria-hidden="true"></span>
+              <h3>Your system is perfect to run Front Row.</h3>
+              <h3>Looks like your system can run Front Row, if you have trouble please send us a report.</h3>
+            </div>
+          </div>
+        </div>
+        <!-- End of Summary Section -->
+
+        <!-- Start of Email Report Section -->
+        <div class="row js-send-email-report-div">
+          <div class="col-xs-12 text-center">
+            <a class="btn btn-lg btn-info js-frontrow-email-link" href="mailto:team@frontrowed.com?subject=Front Row Connection Test&amp;body=Hi,%0A%0AI did the connection test of Front Row. Please find information about my configuration below.">
+              <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Send us the report
+            </a>
+          </div>
+        </div>
+        <!-- End of Email Report Section -->
+
+        <!-- Start of Youtube Check -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bs-callout" data-video-type="youtube">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class='js-icon js-icon-success glyphicon uv-spaced uv-color-success hide glyphicon-ok' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-warning glyphicon uv-spaced uv-color-warning hide glyphicon-warning-sign' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-danger  glyphicon uv-spaced uv-color-danger  hide glyphicon-remove' aria-hidden='true'></span>
+                  Youtube Video Check
+                </div>
+              </div>
+              <div class="row js-video-details">
+                <div class="col-xs-6 uv-padding">
+                  <iframe width="200" height="150" src="https://www.youtube.com/embed/Pshuo0_F5oE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="col-xs-6 text-center">
+                  <small>Can you play the video?</small><br/>
+                  <button class="btn btn-success js-video-check-success">Yes</button>
+                  <button class="btn btn-danger js-video-check-fail">No</button>
+                </div>
+              </div>
+              <div class="row js-video-solution hide">
+                <div class="col-xs-12">
+                  <div class="bs-callout-help">
+                    All of our videos to guide students are on Youtube, please unblock Youtube to see them.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Youtube Check -->
+
+        <!-- Start of Vimeo Check -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bs-callout" data-video-type="vimeo">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class='js-icon js-icon-success glyphicon uv-spaced uv-color-success hide glyphicon-ok' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-warning glyphicon uv-spaced uv-color-warning hide glyphicon-warning-sign' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-danger  glyphicon uv-spaced uv-color-danger  hide glyphicon-remove' aria-hidden='true'></span>
+                  Vimeo Video Check
+                </div>
+              </div>
+              <div class="row js-video-details">
+                <div class="col-xs-6 uv-padding">
+                  <iframe src="https://player.vimeo.com/video/101585868?portrait=0" width="200" height="112" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+                <div class="col-xs-6 text-center">
+                  <small>Can you play the video?</small><br/>
+                  <button class="btn btn-success js-video-check-success">Yes</button>
+                  <button class="btn btn-danger js-video-check-fail">No</button>
+                </div>
+              </div>
+              <div class="row js-video-solution hide">
+                <div class="col-xs-12">
+                  <div class="bs-callout-help">
+                    All of our help videos to guide teachers on the Teacher Dashboard are on Vimeo, please unblock Vimeo to see them.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Vimeo Check -->
+
+        <!-- Start of Front Row Checks -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bs-callout js-waiting js-fr-checks">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class='js-icon js-icon-success glyphicon uv-spaced uv-color-success hide glyphicon-ok' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-warning glyphicon uv-spaced uv-color-warning hide glyphicon-warning-sign' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-danger  glyphicon uv-spaced uv-color-danger  hide glyphicon-remove' aria-hidden='true'></span>
+                  Talking to Front Row
+                </div>
+              </div>
+              <div class="js-help"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Front Row Checks -->
+
+        <!-- Start of External Services Checks -->
+         <div class="row">
+          <div class="col-xs-12">
+            <div class="bs-callout js-waiting js-services-checks">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class='js-icon js-icon-success glyphicon uv-spaced uv-color-success hide glyphicon-ok' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-warning glyphicon uv-spaced uv-color-warning hide glyphicon-warning-sign' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-danger  glyphicon uv-spaced uv-color-danger  hide glyphicon-remove' aria-hidden='true'></span>
+                  Talking to Services
+                </div>
+              </div>
+              <div class="js-help"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of External Services Checks -->
+
+        <!-- Start of Settings Checks -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="bs-callout js-waiting js-settings-checks">
+              <div class="row">
+                <div class="col-xs-12">
+                  <span class='js-icon js-icon-success glyphicon uv-spaced uv-color-success hide glyphicon-ok' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-warning glyphicon uv-spaced uv-color-warning hide glyphicon-warning-sign' aria-hidden='true'></span>
+                  <span class='js-icon js-icon-danger  glyphicon uv-spaced uv-color-danger  hide glyphicon-remove' aria-hidden='true'></span>
+                  Checking System Configuration
+                </div>
+              </div>
+              <div class="js-help"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Settings Checks -->
+      </div>
+      <!-- End of Checks Wrapper -->
+
+
+      <!-- Start of footer -->
+      <footer class="row">
+        <div class="col-xs-12 text-center uv-padding">
+          <p>
+            <a target="_blank" href="https://frontrowed.zendesk.com">More information about Front Row</a>
+          </p>
+          <p>
+            Still need help?
+            <a target="_blank" href="https://frontrowed.zendesk.com/hc/en-us/requests/new">Contact Support</a>
+          </p>
+        </div>
+      </footer>
+      <!-- End of footer -->
+    </div>
+    <!-- End of container and uv-main-wrapper -->
+
+    <!-- Local Scripts -->
+    <script src="vendor/js/jquery-1.10.2.min.js"></script>
+    <script src="vendor/js/ua-parser-0.6.2.js"></script>
+    <script src="vendor/js/lodash-3.7.0.js"></script>
+    <script src="vendor/js/modernizr.custom.tts.min.js"></script>
+
+    <!-- Scripts to Check-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.mxpnl.com/libs/mixpanel-2.2.min.js"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+
+    <!-- Tracker Snippet for Track JS using is own project-->
+    <script type="text/javascript">window._trackJs = { token: 'c60feb9199c44857bfe4cf19ec068e38' };</script>
+    <script type="text/javascript" src="//d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js" crossorigin="anonymous"></script>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39152039-7', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- Main script -->
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
