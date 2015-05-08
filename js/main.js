@@ -22,15 +22,13 @@
 
   var getBaseAPIsUrl = function () {
     switch (window.location.host) {
-      case "student.fragrant.com":
+      case "techcheck.fragrant.com":
         return "https://api.fragrant.com/";
-      case "student.frontrowed.com":
+      case "techcheck.frontrowed.com":
         return "https://api.frontrowed.com/";
-      case "student-onebox.frontrowed.com":
+      case "techcheck-onebox.frontrowed.com":
         return "https://api-onebox.frontrowed.com/";
-      case "student.localhost.com":
-        return "https://api.localhost.com/";
-      case "student-dev.localhost.com":
+      case "techcheck.localhost.com":
         return "https://api.localhost.com/";
       default:
         return console.error("" + window.location.host + " not recognized !!!");
