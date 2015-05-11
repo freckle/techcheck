@@ -62,8 +62,8 @@
     var timeout = 15000;
 
     // Checking querying API
-    checkGetAPI("getapi",           apiUrl + "/students/sessions");
-    checkPatchAPI("patchapi",       apiUrl + "/connection-check");
+    checkAPI("getapi",              apiUrl + "/connection-check", "GET");
+    checkAPI("patchapi",            apiUrl + "/connection-check", "PATCH");
 
     // Checking fetching assets
     checkGetFile("cloudfront",      assetsUrl + "/sample.txt");
@@ -97,39 +97,13 @@
     });
   }
 
-  function checkGetAPI (validatorId, apiUrl) {
+  function checkAPI (validatorId, apiUrl, method) {
     $.ajax({
       dataType: 'json',
       contentType: "application/json; charset=utf8",
       xhrFields: { withCredentials: true },
       url: apiUrl,
-      type: 'GET'
-    })
-    .done(function( jqXHR, textStatus, errorThrown ) {
-      // API will return a 200 if connected
-      if (errorThrown.status == "200") {
-        displayCheckSucceed(validatorId);
-      } else {
-        displayCheckFailed(validatorId);
-      }
-    })
-    .fail(function( jqXHR, textStatus, errorThrown ) {
-      // API will return a 400 if not connected
-      if (jqXHR.status == "400") {
-        displayCheckSucceed(validatorId);
-      } else {
-        displayCheckFailed(validatorId);
-      }
-    });
-  }
-
-  function checkPatchAPI (validatorId, apiUrl) {
-    $.ajax({
-      dataType: 'json',
-      contentType: "application/json; charset=utf8",
-      xhrFields: { withCredentials: true },
-      url: apiUrl,
-      type: 'PATCH'
+      type: method
     })
     .done(function( jqXHR, textStatus, errorThrown ) {
       if (errorThrown.status == "200") {
