@@ -51,7 +51,7 @@
     var apiUrl      = baseAPIsUrl + "2";
     var assetsUrl   = "https://d116d2b4cs97oy.cloudfront.net";
     var aWSS3Assets = "https://s3.amazonaws.com/classroom-assets";
-    var imgixUrl    = "http://www.imgix.net/";
+    var imgixUrl    = "https://frontrow-image-assets.imgix.net";
     var ttsAPI      = "http://tts-api.com/tts.mp3";
     var minWidth    = 700;
     var minHeight   = 500;
