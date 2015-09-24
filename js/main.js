@@ -15,6 +15,7 @@
     { validatorId: "trackjs",     severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "mixpanel",    severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "mathjax",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
+    { validatorId: "imgix",       severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "tts",         severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "browser",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "screensize",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" }
@@ -50,6 +51,7 @@
     var apiUrl      = baseAPIsUrl + "2";
     var assetsUrl   = "https://d116d2b4cs97oy.cloudfront.net";
     var aWSS3Assets = "https://s3.amazonaws.com/classroom-assets";
+    var imgixUrl    = "http://www.imgix.net/";
     var ttsAPI      = "http://tts-api.com/tts.mp3";
     var minWidth    = 700;
     var minHeight   = 500;
@@ -68,6 +70,7 @@
     // Checking fetching assets
     checkGetFile("cloudfront",      assetsUrl + "/sample.txt");
     checkGetFile("s3",              aWSS3Assets + "/sample.txt");
+    checkGetFile("imgix",           imgixUrl);
 
     // Checking scripts
     checkScript("jquery",           "jQuery");
@@ -343,6 +346,7 @@
       case "trackjs":     return "Sending information to TrackJs";
       case "mixpanel":    return "Sending information to MixPanel";
       case "mathjax":     return "Fetching MathJax library";
+      case "imgix":       return "Fetching information from Imgix";
       case "tts":         return "Fetching jQuery library";
       case "browser":     return "Use Front Row on my browser";
       case "screensize":  return "Use Front Row on my device";
