@@ -9,8 +9,7 @@
   var checksData = [
     { validatorId: "getapi",      severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-fr-checks" },
     { validatorId: "patchapi",    severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-fr-checks" },
-    { validatorId: "cloudfront",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
-    { validatorId: "s3",          severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
+    { validatorId: "frontrowcdn", severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "jquery",      severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "trackjs",     severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "mixpanel",    severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-services-checks" },
@@ -18,7 +17,9 @@
     { validatorId: "imgix",       severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "tts",         severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "browser",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
-    { validatorId: "screensize",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" }
+    { validatorId: "screensize",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
+    { validatorId: "connection",  severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
+
   ];
 
   var getBaseAPIsUrl = function () {
@@ -49,9 +50,9 @@
   function launchAllChecks () {
     var baseAPIsUrl = getBaseAPIsUrl();
     var apiUrl      = baseAPIsUrl + "2";
-    var assetsUrl   = "https://d116d2b4cs97oy.cloudfront.net";
-    var aWSS3Assets = "https://s3.amazonaws.com/classroom-assets";
+    var assetsUrl   = "https://classroom-assets.frontrowed.com";
     var imgixUrl    = "https://frontrow-image-assets.imgix.net";
+
     var ttsAPI      = "http://tts-api.com/tts.mp3";
     var minWidth    = 700;
     var minHeight   = 500;
@@ -68,9 +69,8 @@
     checkAPI("patchapi",            apiUrl + "/connection-check", "PATCH");
 
     // Checking fetching assets
-    checkGetFile("cloudfront",      assetsUrl + "/sample.txt");
-    checkGetFile("s3",              aWSS3Assets + "/sample.txt");
-    checkGetFile("imgix",           imgixUrl);
+    checkGetFile("frontrowcdn",      assetsUrl + "/sample.txt");
+    checkGetFile("imgix",            imgixUrl);
 
     // Checking scripts
     checkScript("jquery",           "jQuery");
@@ -82,6 +82,9 @@
     checkTTS("tts",                 ttsAPI);
     checkBrowser("browser",         browserWhitelist, recommendedBrowser);
     checkScreenSize("screensize",   minWidth,         minHeight);
+
+    // Check connection speed
+    checkConnectionSpeed("connection", assetsUrl)
 
     // Timeout will make sure everything worked or display failure
     _.delay(everythingGoodOrFailure, timeout);
@@ -214,6 +217,23 @@
     }
   }
 
+  function checkConnectionSpeed(validatorId, assetsUrl) {
+    var startTime = new Date().getTime();
+    var picture = new Image();
+    picture.onload = function () {
+      var endTime = new Date().getTime();
+      var duration = (endTime - startTime) / 1000;
+      if (duration > 5) {
+        displayCheckFailed(validatorId, null, "Your connection is slow. Your may experience slowness with Front Row.");
+      } else {
+        displayCheckSucceed(validatorId);
+      }
+    }
+    // This is a 3.4MB picture
+    picture.src =  assetsUrl + "/test.png" + "?n=" + Math.random();
+  }
+
+
   // VIDEO BUTTONS HANDLERS
 
   $(".js-video-check-fail").click(function (e) {
@@ -340,8 +360,7 @@
     switch (validatorId) {
       case "getapi":      return "Fetching information from Front Row";
       case "patchapi":    return "Sending information to Front Row";
-      case "cloudfront":  return "Fetching information from Cloudfront";
-      case "s3":          return "Fetching information from S3";
+      case "frontrowcdn": return "Fetching information from Front Row Amazon";
       case "jquery":      return "Fetching jQuery library";
       case "trackjs":     return "Sending information to TrackJs";
       case "mixpanel":    return "Sending information to MixPanel";
