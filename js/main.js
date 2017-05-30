@@ -13,7 +13,6 @@
     { validatorId: "jquery",      severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "trackjs",     severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "mixpanel",    severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-services-checks" },
-    { validatorId: "mathjax",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "imgix",       severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "tts",         severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "browser",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
@@ -43,6 +42,7 @@
       case "tts":
         return "Please use Chrome to have questions read aloud.";
       default:
+        console.log("Blocked validatorId: " + validatorId)
         return "It appears that your network is blocking a domain required by Front Row. Learn more about it at the " + blockedPageLink;
     }
   }
@@ -76,7 +76,6 @@
     checkScript("jquery",           "jQuery");
     checkScript("trackjs",          "trackJs");
     checkScript("mixpanel",         "mixpanel");
-    checkScript("mathjax",          "MathJax");
 
     // Checking system
     checkTTS("tts",                 ttsAPI);
@@ -364,7 +363,6 @@
       case "jquery":      return "Fetching jQuery library";
       case "trackjs":     return "Sending information to TrackJs";
       case "mixpanel":    return "Sending information to MixPanel";
-      case "mathjax":     return "Fetching MathJax library";
       case "imgix":       return "Fetching information from Imgix";
       case "tts":         return "Fetching jQuery library";
       case "browser":     return "Use Front Row on my browser";
