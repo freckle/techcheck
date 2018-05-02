@@ -19,7 +19,6 @@
     { validatorId: "screensize",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "connection",  severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
     // legacy checks
-    { validatorId: "old-frontrowcdn", severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-services-checks" },
     { validatorId: "old-imgix",       severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
   ];
 
@@ -50,8 +49,7 @@
   function launchAllChecks () {
     var baseAPIsUrl = getBaseAPIsUrl();
     var apiUrl      = baseAPIsUrl + "2";
-    var assetsUrl   = "https://classroom-assets.freckle.com";
-    var oldAssetsUrl   = "https://classroom-assets.frontrowed.com";
+    var assetsUrl   = "https://classroom-assets.frontrowed.com";
     var imgixUrl    = "https://frontrow-image-assets.imgix.net";
     var oldImgixUrl    = "https://frontrow-image-assets.imgix.net";
 
@@ -72,7 +70,6 @@
 
     // Checking fetching assets
     checkGetFile("frontrowcdn",      assetsUrl + "/sample.txt");
-    checkGetFile("old-frontrowcdn",  oldAssetsUrl + "/sample.txt");
     checkGetFile("imgix",            imgixUrl);
     checkGetFile("old-imgix",        oldImgixUrl);
 
@@ -372,8 +369,6 @@
       case "browser":     return "Use Freckle on my browser";
       case "screensize":  return "Use Freckle on my device";
       case "timeout":     return "Connection timeout";
-
-      case "old-frontrowcdn": return "Fetching information from Freckle Amazon";
       case "old-imgix":       return "Fetching information from Imgix";
       default:            return "Unknown";
     }
