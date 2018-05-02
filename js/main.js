@@ -18,8 +18,6 @@
     { validatorId: "browser",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "screensize",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "connection",  severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
-    // legacy checks
-    { validatorId: "old-imgix",       severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
   ];
 
   var getBaseAPIsUrl = function () {
@@ -51,7 +49,6 @@
     var apiUrl      = baseAPIsUrl + "2";
     var assetsUrl   = "https://classroom-assets.frontrowed.com";
     var imgixUrl    = "https://frontrow-image-assets.imgix.net";
-    var oldImgixUrl    = "https://frontrow-image-assets.imgix.net";
 
     var ttsAPI      = "http://tts-api.com/tts.mp3";
     var minWidth    = 700;
@@ -71,7 +68,6 @@
     // Checking fetching assets
     checkGetFile("frontrowcdn",      assetsUrl + "/sample.txt");
     checkGetFile("imgix",            imgixUrl);
-    checkGetFile("old-imgix",        oldImgixUrl);
 
     // Checking scripts
     checkScript("jquery",           "jQuery");
@@ -369,7 +365,6 @@
       case "browser":     return "Use Freckle on my browser";
       case "screensize":  return "Use Freckle on my device";
       case "timeout":     return "Connection timeout";
-      case "old-imgix":   return "Fetching information from Imgix";
       default:            return "Unknown";
     }
   }
