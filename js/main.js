@@ -18,17 +18,14 @@
     { validatorId: "browser",     severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "screensize",  severity: SEVERITY_DANGER,   result: CHECK_WAITING, selector: "js-settings-checks" },
     { validatorId: "connection",  severity: SEVERITY_WARNING,  result: CHECK_WAITING, selector: "js-settings-checks" },
-
   ];
 
   var getBaseAPIsUrl = function () {
     switch (window.location.host) {
-      case "techcheck.fragrant.com":
-        return "https://api.fragrant.com/";
-      case "techcheck.frontrowed.com":
-        return "https://api.frontrowed.com/";
-      case "techcheck-onebox.frontrowed.com":
-        return "https://api-onebox.frontrowed.com/";
+      case "techcheck.freckle.com":
+        return "https://api.freckle.com/";
+      case "techcheck-onebox.freckle.com":
+        return "https://api-onebox.freckle.com/";
       case "techcheck.localhost.com":
         return "https://api.localhost.com/";
       default:
@@ -37,13 +34,13 @@
   };
 
   function getValidatorHelp (validatorId) {
-    var blockedPageLink = "<a href='https://frontrowed.zendesk.com/hc/en-us/articles/204650558-Is-there-a-list-of-URLs-that-we-should-whitelist-in-our-firewall-to-make-sure-Front-Row-runs-smoothly-'>Front Row Knowledge Base</a>";
+    var blockedPageLink = "<a href='https://freckle.zendesk.com/hc/en-us/articles/204650558-Is-there-a-list-of-URLs-that-we-should-whitelist-in-our-firewall-to-make-sure-Front-Row-runs-smoothly-'>Freckle Knowledge Base</a>";
     switch (validatorId) {
       case "tts":
         return "Please use Chrome to have questions read aloud.";
       default:
         console.log("Blocked validatorId: " + validatorId)
-        return "It appears that your network is blocking a domain required by Front Row. Learn more about it at the " + blockedPageLink;
+        return "It appears that your network is blocking a domain required by Freckle. Learn more about it at the " + blockedPageLink;
     }
   }
 
@@ -166,7 +163,7 @@
       else if (userBrowser) {
         if (userBrowser.major <= parseInt(uap.browser.major,10)) {
           displayCheckFailed(validatorId, SEVERITY_WARNING,
-            "Front Row works best on Chrome. You can download it " + chromeLink);
+            "Freckle works best on Chrome. You can download it " + chromeLink);
         } else {
           displayCheckFailed(validatorId, SEVERITY_DANGER,
             "Your browser is not supported. Please download Chrome " + chromeLink);
@@ -200,11 +197,11 @@
     var screenHeight = $(window).height();
     var failed = false;
     if (screenWith < minWidth) {
-      displayCheckFailed(validatorId, null, "You screen is too narrow to execute Front Row");
+      displayCheckFailed(validatorId, null, "You screen is too narrow to execute Freckle");
       failed = true;
     }
     if (screenHeight < minHeight) {
-      displayCheckFailed(validatorId, null, "You screen is too small to execute Front Row");
+      displayCheckFailed(validatorId, null, "You screen is too small to execute Freckle");
       failed = true;
     }
     if (screenWith < screenHeight) {
@@ -223,7 +220,7 @@
       var endTime = new Date().getTime();
       var duration = (endTime - startTime) / 1000;
       if (duration > 5) {
-        displayCheckFailed(validatorId, null, "Your connection is slow. Your may experience slowness with Front Row.");
+        displayCheckFailed(validatorId, null, "Your connection is slow. Your may experience slowness with Freckle.");
       } else {
         displayCheckSucceed(validatorId);
       }
@@ -357,16 +354,16 @@
 
   function userFriendlyValidator (validatorId) {
     switch (validatorId) {
-      case "getapi":      return "Fetching information from Front Row";
-      case "patchapi":    return "Sending information to Front Row";
-      case "frontrowcdn": return "Fetching information from Front Row Amazon";
+      case "getapi":      return "Fetching information from Freckle";
+      case "patchapi":    return "Sending information to Freckle";
+      case "frontrowcdn": return "Fetching information from Freckle Amazon";
       case "jquery":      return "Fetching jQuery library";
       case "trackjs":     return "Sending information to TrackJs";
       case "mixpanel":    return "Sending information to MixPanel";
       case "imgix":       return "Fetching information from Imgix";
       case "tts":         return "Fetching jQuery library";
-      case "browser":     return "Use Front Row on my browser";
-      case "screensize":  return "Use Front Row on my device";
+      case "browser":     return "Use Freckle on my browser";
+      case "screensize":  return "Use Freckle on my device";
       case "timeout":     return "Connection timeout";
       default:            return "Unknown";
     }
