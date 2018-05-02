@@ -369,7 +369,7 @@
       case "browser":     return "Use Freckle on my browser";
       case "screensize":  return "Use Freckle on my device";
       case "timeout":     return "Connection timeout";
-      case "old-imgix":       return "Fetching information from Imgix";
+      case "old-imgix":   return "Fetching information from Imgix";
       default:            return "Unknown";
     }
   }
