@@ -57,7 +57,9 @@
     var browserWhitelist  = [ { name: "chrome",         major: 40 },
                               { name: "firefox",        major: 35 },
                               { name: "safari",         major: 8  },
-                              { name: "mobile safari",  major: 5  }];
+                              { name: "mobile safari",  major: 5  },
+                              { name: "IE",             major: 11 },
+                              { name: "Edge",           major: 16 } ];
 
     var timeout = 15000;
 
