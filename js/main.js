@@ -34,7 +34,7 @@
   };
 
   function getValidatorHelp (validatorId) {
-    var blockedPageLink = "<a href='https://freckle.zendesk.com/hc/en-us/articles/204650558-Is-there-a-list-of-URLs-that-we-should-whitelist-in-our-firewall-to-make-sure-Front-Row-runs-smoothly-'>Freckle Knowledge Base</a>";
+    var blockedPageLink = "<a href='https://support.freckle.com/hc/en-us/articles/204650558-Is-there-a-list-of-URLs-that-we-should-whitelist-in-our-firewall-to-make-sure-Front-Row-runs-smoothly-'>Freckle Knowledge Base</a>";
     switch (validatorId) {
       case "tts":
         return "Please use Chrome to have questions read aloud.";
