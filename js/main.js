@@ -47,8 +47,8 @@
   function launchAllChecks () {
     var baseAPIsUrl = getBaseAPIsUrl();
     var apiUrl      = baseAPIsUrl + "2";
-    var assetsUrl   = "https://classroom-assets.freckle.com/";
-    var imgixUrl    = "http://images.freckle.com/";
+    var assetsUrl   = "https://classroom-assets.freckle.com";
+    var imgixUrl    = "https://images.freckle.com";
 
     var ttsAPI      = "http://tts-api.com/tts.mp3";
     var minWidth    = 700;
